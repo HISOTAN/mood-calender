@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+*{
+    box-sizing: border-box;
+
+}
+
+/* 选择器设置HTML文档的颜色 */
+:root{
+    --mood-color-1:#28685b;
+    --mood-color-2:#94ecbd;
+    --mood-color-3:#91c05c;
+    --mood-color-4:#e6ab78;
+    --mood-color-5:#ea3d36;
+}
+
+body{
+    font-family: 'Muli';
+    margin: 40px 0;
+}
+
+h2{
+    margin-bottom: 0;
+}
+
+h4{
+    font-weight: 200;
+    margin: 5px 0 20px;
+}
+
+p{
+    margin: 5px 0;
+}
+
+.container{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 30px;
+    text-align: center;
+}
+
+
+/* 心情图标 */
+.mood-container{
+    /* 弹性布局 */
+    display: flex;
+    /* 垂直居中 */
+    justify-content: center;
+    align-items: center;
+}
+
+/* mood通用样式 */
+.mood{
+    background-color: white;
+    border: 0;
+
+    /* 圆形图标 */
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+
+    color: #000;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    line-height: 20px;
+    padding: 0;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+}
+
+.mood .iconfont{
+    font-size: 30px;
+}
+
+
+.mood .icon-shangxinbiaoqing{
+    font-size: 35px;
+}
+
+/* 独立样式 */
+.mood-1{
+    color: var(--mood-color-1);
+}
+
+.mood-2{
+    color: var(--mood-color-2);
+}
+
+.mood-3{
+    color: var(--mood-color-3);
+}
+
+.mood-4{
+    color: var(--mood-color-4);
+}
+
+.mood-5{
+    color: var(--mood-color-5);
+}
+
+/* 清除选中时的外边框 */
+.mood:focus{
+    outline: 0;
+}
+
+/* 点击缩放效果 */
+.mood:active{
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+}
+
+/* 点击图标改变颜色 */
+/* 后期通过JS自动添加类名 */
+.mood.selected{
+    /* currentColor 点击时的当前颜色 */
+    background-color: currentColor;
+}
+
+.mood.mood.selected i{
+    color: #fff;
+}
+
+/* 随机和清除按钮 */
+.action-btn{
+    border-radius: 10px 0 0 10px;
+    -webkit-border-radius: 10px 0 0 10px;
+    -moz-border-radius: 10px 0 0 10px;
+    -ms-border-radius: 10px 0 0 10px;
+    -o-border-radius: 10px 0 0 10px;
+
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 12px;
+    margin: 0;
+    /* 固定在右上角 */
+    position: fixed;
+    right: 0;
+    top: 40px;
+}
+
+/* 点击按钮时的颜色变化 */
+.action-btn:active{
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+}
+
+.action-btn:focus{
+    outline: none;
+}
+
+.randomize{
+    background-color: var(--mood-color-2);
+}
+
+.clear{
+    background-color: #888;
+    top: 80px;
+}
+
+/* 日历 */
+.calendar{
+    /* 弹性布局排成一行 */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.months{
+    /* 月份之间拉开距离 */
+    padding: 10px;
+    /* 每个月份占页面的三分之一 */
+    width: 33%;
+}
+
+.week-days-container,
+.days-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.week-days,
+.days {
+    font-size: 14px;
+    margin-bottom: 5px;
+
+    /* 计算函数，因为分为7小部分，所以除以7 */
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+
+    text-align: center;
+
+}
+
+.days .circle{
+    background-color: #888;
+
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+
+    color: #fff;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.days .circle:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+/* 媒体查询 ，防止页面改动元素混乱*/
+@media (max-width: 480px) {
+    .months {
+
+        /* 当页面小于480px时，月份单个排列 */
+        width: 100%;
+    }
+}
